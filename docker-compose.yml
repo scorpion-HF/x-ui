@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  x-ui:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: x-ui
+    volumes:
+      - ./db:/etc/x-ui/
+      - ./cert/:/root/cert/
+    restart: unless-stopped
+    network_mode: host
